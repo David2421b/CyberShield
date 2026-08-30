@@ -43,8 +43,18 @@ function initFormValidation() {
     });
 }
 
-function validateFullName(){
-
+function validateFullName() {
+    const value = fullNameInput.value.trim();
+    if (value === '') {
+        setError(fullNameInput, 'error-fullName', 'El nombre completo es obligatorio.');
+        return false;
+    } else if (value.length < 3) {
+        setError(fullNameInput, 'error-fullName', 'El nombre debe tener al menos 3 caracteres.');
+        return false;
+    } else {
+        clearError(fullNameInput, 'error-fullName');
+        return true;
+    }
 }
 
 function  validateEmail(){
@@ -55,5 +65,5 @@ function validateCourseSelect(){
 }
 
 function validateMessage(){
-    
+
 }
