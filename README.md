@@ -47,3 +47,20 @@ Utilice la IA, para generar ideas como paletas de colores, cursos y nombres, tam
 Mi mayor reto fue coordinar la actualización de errores en el formulario en tiempo real (eventos `input`) con la auto-selección de cursos desde las tarjetas del catálogo. Lo resolví usando funciones *helper* especializadas (`setError` y `clearError`) que aíslan la lógica del DOM para mantener el código mantenible. Tambien tuve problemas al aprender a usar los WebHocks de N8N para poder agregar a un payload la info que deberia poder enviar la app al usuario
 
 ---
+### Capturas de la App
+#### PC
+<p align="center">
+  <img src="assets/app_photos/1.png" alt="Licencia del proyecto" width="500" />
+</p>
+
+<p align="center">
+  <img src="assets/app_photos/2.png" alt="Licencia del proyecto" width="500" />
+</p>
+
+<p align="center">
+  <img src="assets/app_photos/3.png" alt="Licencia del proyecto" width="500" />
+</p>
+
+<p align="center">
+  <img src="assets/app_photos/4.png" alt="Licencia del proyecto" width="500" />
+</p>
