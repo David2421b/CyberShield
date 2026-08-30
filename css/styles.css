@@ -269,6 +269,34 @@ main {
   }
 }
 
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.course-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.course-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: var(--bg-secondary);
+}
+
 /*Footer*/
 
 .main-footer {
