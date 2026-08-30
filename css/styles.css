@@ -259,3 +259,21 @@ main {
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
 }
+
+.footer-info h3 {
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.footer-info p {
+    color: var(--text-secondary);
+    max-width: 350px;
+    font-size: 0.95rem;
+}
+
+.footer-links h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
