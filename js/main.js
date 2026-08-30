@@ -130,9 +130,24 @@ function initNavigationState() {
 
     const setActiveLink = (id) => {
         navLinks.forEach(link => {
-            const isActive = link.getAttribute('href') === `#${id}`;
+            const href = link.getAttribute('href');
+            const isActive = href === `#${id}`;
             link.classList.toggle('active', isActive);
         });
+    };
+
+    const updateActiveSection = () => {
+        const offset = 120;
+        let currentId = 'inicio';
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= offset && rect.bottom >= offset) {
+                currentId = section.id;
+            }
+        });
+
+        setActiveLink(currentId);
     };
 
     navLinks.forEach(link => {
@@ -144,20 +159,8 @@ function initNavigationState() {
         });
     });
 
-    const observer = new IntersectionObserver((entries) => {
-        const visibleEntries = entries
-            .filter(entry => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visibleEntries.length > 0) {
-            setActiveLink(visibleEntries[0].target.id);
-        }
-    }, {
-        rootMargin: '-20% 0px -45% 0px',
-        threshold: [0.3, 0.6, 0.9]
-    });
-
-    sections.forEach(section => observer.observe(section));
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
 }
 
 
