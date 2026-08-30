@@ -57,8 +57,20 @@ function validateFullName() {
     }
 }
 
-function  validateEmail(){
+function validateEmail() {
+    const value = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    if (value === '') {
+        setError(emailInput, 'error-email', 'El correo electrónico es obligatorio.');
+        return false;
+    } else if (!emailRegex.test(value)) {
+        setError(emailInput, 'error-email', 'Ingresa un correo electrónico válido (ej. usuario@dominio.com).');
+        return false;
+    } else {
+        clearError(emailInput, 'error-email');
+        return true;
+    }
 }
 function validateCourseSelect(){
 
