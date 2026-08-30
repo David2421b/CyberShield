@@ -54,7 +54,7 @@ Mi mayor reto fue coordinar la actualización de errores en el formulario en tie
 #### PC
 
 <p align="center">
-  <img src="assets/app_photos/app_completa.gif" width="500" controls></img>
+  <img src="assets/app_photos/app_completa.gif" width="1000" controls></img>
 </p>
 
 <p align="center">
