@@ -28,6 +28,21 @@ La aplicacion es una tienda virtual que resuelve la falta de plataformas de apre
 
 ### 3. Uso de Inteligencia Artificial
 Utilice la IA, para generar ideas como paletas de colores, cursos y nombres, tambien para corregir errores de interconeccion de archivos ademas aproveche la IA para usar N8N y enviar correos reales al usuario (Valido por 14 dias ya que es la capa gratuita), por ultimo use la IA para generar una licencia donde diga que mi proyecto no lo puede usar nadie mas debido a que el Repositorio estara publico en mi GitHub.
+#### Pruebas de uso de IA
+
+<p align="center">
+  <img src="assets/IA_photos/licencia.png" alt="Licencia del proyecto" width="300" />
+</p>
+
+<p align="center">
+  <img src="assets/IA_photos/paleta_colores.png" alt="Licencia del proyecto" width="300" />
+</p>
+
+<p align="center">
+  <img src="assets/IA_photos/N8N.png" alt="Licencia del proyecto" width="300" />
+</p>
+
+
 ### 4. Retos y Soluciones
 Mi mayor reto fue coordinar la actualización de errores en el formulario en tiempo real (eventos `input`) con la auto-selección de cursos desde las tarjetas del catálogo. Lo resolví usando funciones *helper* especializadas (`setError` y `clearError`) que aíslan la lógica del DOM para mantener el código mantenible. Tambien tuve problemas al aprender a usar los WebHocks de N8N para poder agregar a un payload la info que deberia poder enviar la app al usuario
 
