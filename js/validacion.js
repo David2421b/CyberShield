@@ -84,6 +84,13 @@ function validateCourseSelect() {
     }
 }
 
-function validateMessage(){
-
+function validateMessage() {
+    const value = messageInput.value.trim();
+    if (value !== '' && value.length < 10) {
+        setError(messageInput, 'error-message', 'El mensaje debe tener al menos 10 caracteres.');
+        return false;
+    } else {
+        clearError(messageInput, 'error-message');
+        return true;
+    }
 }
