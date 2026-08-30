@@ -27,7 +27,7 @@ La aplicacion es una tienda virtual que resuelve la falta de plataformas de apre
 - **Validación del Formulario:** En `js/validacion.js` intercepto el evento `submit` con `preventDefault()`. Valido los campos obligatorios, el formato de correo mediante expresiones regulares (`Regex`) y la longitud mínima del mensaje. Los errores se inyectan dinámicamente manipulando clases `.error` y mostrando etiquetas `<span>` bajo cada input sin recargar la página ni usar `alert()`.
 
 ### 3. Uso de Inteligencia Artificial
-Utilice la IA, para generar ideas como paletas de colores, cursos y nombres, tambien para corregir errores de interconeccion de archivos ademas aproveche la IA para usar N8N y enviar correos reales al usuario (Valido por 14 dias ya que es la capa gratuita), por ultimo use la IA para generar una licencia donde diga que mi proyecto no lo puede usar nadie mas debido a que el Repositorio estara publico en mi GitHub.
+Utilice la IA, para generar ideas como paletas de colores, cursos y nombres, tambien para corregir errores de interconeccion de archivos, ordenar las fotos en el ` README.md `, ademas aproveche la IA para usar N8N y enviar correos reales al usuario (Valido por 14 dias ya que es la capa gratuita), por ultimo use la IA para generar una licencia donde diga que mi proyecto no lo puede usar nadie mas debido a que el Repositorio estara publico en mi GitHub.
 #### Pruebas de uso de IA
 
 <p align="center">
@@ -42,6 +42,9 @@ Utilice la IA, para generar ideas como paletas de colores, cursos y nombres, tam
   <img src="assets/IA_photos/N8N.png" alt="Licencia del proyecto" width="300" />
 </p>
 
+<p align="center">
+  <img src="assets/IA_photos/photos.png" alt="Licencia del proyecto" width="300" />
+</p>
 
 ### 4. Retos y Soluciones
 Mi mayor reto fue coordinar la actualización de errores en el formulario en tiempo real (eventos `input`) con la auto-selección de cursos desde las tarjetas del catálogo. Lo resolví usando funciones *helper* especializadas (`setError` y `clearError`) que aíslan la lógica del DOM para mantener el código mantenible. Tambien tuve problemas al aprender a usar los WebHocks de N8N para poder agregar a un payload la info que deberia poder enviar la app al usuario
@@ -64,3 +67,32 @@ Mi mayor reto fue coordinar la actualización de errores en el formulario en tie
 <p align="center">
   <img src="assets/app_photos/4.png" alt="Licencia del proyecto" width="500" />
 </p>
+
+#### Celular
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="assets/app_cel_photos/1.png" alt="Vista principal en móvil" width="220" />
+      </td>
+      <td align="center">
+        <img src="assets/app_cel_photos/2.png" alt="Catálogo en móvil" width="220" />
+      </td>
+      <td align="center">
+        <img src="assets/app_cel_photos/3.png" alt="Detalle de curso en móvil" width="220" />
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="assets/app_cel_photos/4.png" alt="Formulario de inscripción en móvil" width="220" />
+      </td>
+      <td align="center">
+        <img src="assets/app_cel_photos/5.png" alt="Vista final en móvil" width="220" />
+      </td>
+      <td align="center">
+        <img src="assets/app_cel_photos/1.png" alt="Repetición de vista principal en móvil" width="220" />
+      </td>
+    </tr>
+  </table>
+</div>
