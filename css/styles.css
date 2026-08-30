@@ -188,6 +188,9 @@ main {
     gap: 1.5rem;
 }
 
+.courses-section {
+    background-color: var(--bg-primary);
+}
 
 .btn {
     display: inline-block;
@@ -282,4 +285,28 @@ main {
     flex-direction: column;
     gap: 1.5rem;
   }
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 1.5rem auto 0 auto;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
 }
