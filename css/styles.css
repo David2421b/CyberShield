@@ -220,3 +220,22 @@ main {
     border-color: var(--accent-color);
     color: var(--accent-color);
 }
+
+@media (max-width: 768px) {
+    .hero-section {
+    padding: 4rem 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
