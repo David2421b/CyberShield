@@ -1,8 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
+  populateCourseOptions(cursos);
   renderCourses(cursos); // 'cursos' proviene de js/data.js
   initCategoryFilters();
 });
+
+function populateCourseOptions(coursesList) {
+  const courseSelect = document.getElementById('courseSelect');
+  if (!courseSelect) return;
+
+  courseSelect.innerHTML = '<option value="">-- Selecciona un curso --</option>';
+
+  coursesList.forEach(course => {
+    const option = document.createElement('option');
+    option.value = course.id;
+    option.textContent = course.titulo;
+    courseSelect.appendChild(option);
+  });
+}
 
 function renderCourses(coursesList) {
     const coursesGrid = document.getElementById('courses-grid');
