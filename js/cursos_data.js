@@ -56,7 +56,27 @@ const cursos = [
     nivel: "Intermedio",
     duracion: "25 horas",
     precio: 49.99,
-    imagen: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=600&q=80",
+    imagen: "https://plus.unsplash.com/premium_photo-1733317239304-a6bf462a2596?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     descripcion: "Implementación de cifrado simétrico/asimétrico, funciones Hash, PKI, análisis de vulnerabilidades en SSL/TLS y SSH."
+  },
+  {
+    id: 7,
+    titulo: "Auditoría RF y Emulación con Flipper Zero",
+    categoria: "Red Team",
+    nivel: "Principiante",
+    duracion: "30 horas",
+    precio: 64.99,
+    imagen: "https://cdn.flipper.net/zero_landing_subghz_flipper.jpg",
+    descripcion: "Análisis e intercepción de señales Sub-1 GHz, emulación de tarjetas NFC/RFID, ataques BadUSB y desarrollo de aplicaciones en C para Flipper Zero."
+  },
+  {
+    id: 8,
+    titulo: "Radio Definida por Software (SDR) con HackRF One",
+    categoria: "Red Team",
+    nivel: "Avanzado",
+    duracion: "50 horas",
+    precio: 109.99,
+    imagen: "https://greatscottgadgets.com/images/h1-preliminary1-445.jpeg",
+    descripcion: "Captura y replay de señales de radio de 1 MHz a 6 GHz con GNU Radio, análisis de protocolos GPS, GSM, ADS-B e inspección de espectro electromagnético."
   }
 ];
