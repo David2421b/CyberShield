@@ -52,6 +52,11 @@ Mi mayor reto fue coordinar la actualización de errores en el formulario en tie
 ---
 ### Capturas de la App
 #### PC
+
+<p align="center">
+  <video src="assets/app_photos/app_completa.mp4" width="500" controls></video>
+</p>
+
 <p align="center">
   <img src="assets/app_photos/1.png" alt="Licencia del proyecto" width="500" />
 </p>
