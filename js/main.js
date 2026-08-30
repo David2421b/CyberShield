@@ -69,3 +69,41 @@ function initCategoryFilters() {
         });
     });
 }
+
+function bindCourseSelectionEvents() {
+  const selectButtons = document.querySelectorAll('.btn-select-course');
+  const courseSelect = document.getElementById('courseSelect');
+
+  if (!courseSelect) return;
+
+  selectButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const courseId = e.target.getAttribute('data-id');
+      courseSelect.value = courseId;
+    });
+  });
+}
+
+// Parte responsive para celular
+
+function initMobileMenu() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (!menuToggle || !navMenu) return;
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    });
+    });
+}
+
+

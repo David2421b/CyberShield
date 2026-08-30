@@ -16,7 +16,7 @@ const cursos = [
     nivel: "Principiante",
     duracion: "35 horas",
     precio: 69.99,
-    imagen: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
+    imagen: "https://i.ytimg.com/vi/p08Bkpde1sI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCsm7Zn6jr5IgKtzgeL68SsiX02Lg",
     descripcion: "Análisis de tráfico de red con Wireshark, gestión de SIEM, detección de intrusos y respuesta a incidentes."
   },
   {
@@ -26,7 +26,7 @@ const cursos = [
     nivel: "Avanzado",
     duracion: "50 horas",
     precio: 99.99,
-    imagen: "https://images.unsplash.com/photo-1563206076-8e867350208a?auto=format&fit=crop&w=600&q=80",
+    imagen: "https://img2.helpnetsecurity.com/posts2025/ghidra-650.webp",
     descripcion: "Ingeniería inversa de binarios, extracción de memoria RAM, análisis de artifacts en Windows/Linux y cadena de custodia."
   },
   {
