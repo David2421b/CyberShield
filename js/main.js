@@ -45,3 +45,27 @@ function renderCourses(coursesList) {
 
     bindCourseSelectionEvents();
 }
+
+function initCategoryFilters() {
+    const filterContainer = document.getElementById('filter-container');
+    if (!filterContainer) return;
+
+    const filterButtons = filterContainer.querySelectorAll('.filter-btn');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        const selectedBtn = e.target;
+        selectedBtn.classList.add('active');
+
+        const category = selectedBtn.getAttribute('data-category');
+
+        if (category === 'todos') {
+            renderCourses(cursos);
+        } else {
+            const filteredCourses = cursos.filter(course => course.categoria === category);
+            renderCourses(filteredCourses);
+        }
+        });
+    });
+}
