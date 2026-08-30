@@ -6,3 +6,6 @@ node_modules
 
 .vscode/
 .idea/
+
+# Archivos para probar ideas
+pruebas.css 
