@@ -377,6 +377,23 @@ main {
 }
 
 
+.contact-section {
+    background-color: var(--bg-primary);
+}
+
+.enrollment-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--bg-secondary);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.btn-submit {
+    width: 100%;
+}
+
 /*Footer*/
 
 .main-footer {
