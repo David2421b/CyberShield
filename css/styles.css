@@ -36,6 +36,8 @@ ul {
     list-style: none;
 }
 
+/*Header*/
+
 .main-header {
     position: sticky; /*Hace que el header no se mueva cuando hago scroll*/
     top: 0;
@@ -133,4 +135,16 @@ ul {
     gap: 1.2rem;
     align-items: flex-start;
   }
+}
+
+/*Main*/
+
+main {
+    width: 100%;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
 }
