@@ -148,11 +148,3 @@ main {
     margin: 0 auto;
     padding: 4rem 1.5rem;
 }
-
-.section-container h2 {
-    font-size: 2.25rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-}
