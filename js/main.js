@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
+  initNavigationState();
   populateCourseOptions(cursos);
   renderCourses(cursos); // 'cursos' proviene de js/data.js
   initCategoryFilters();
@@ -119,6 +120,44 @@ function initMobileMenu() {
         }
     });
     });
+}
+
+function initNavigationState() {
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (!sections.length || !navLinks.length) return;
+
+    const setActiveLink = (id) => {
+        navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('active', isActive);
+        });
+    };
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const targetId = link.getAttribute('href')?.replace('#', '');
+            if (targetId) {
+                setActiveLink(targetId);
+            }
+        });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        const visibleEntries = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+            setActiveLink(visibleEntries[0].target.id);
+        }
+    }, {
+        rootMargin: '-20% 0px -45% 0px',
+        threshold: [0.3, 0.6, 0.9]
+    });
+
+    sections.forEach(section => observer.observe(section));
 }
 
 
