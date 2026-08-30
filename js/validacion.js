@@ -72,8 +72,16 @@ function validateEmail() {
         return true;
     }
 }
-function validateCourseSelect(){
 
+function validateCourseSelect() {
+    const value = courseSelect.value;
+    if (value === '') {
+        setError(courseSelect, 'error-courseSelect', 'Debes seleccionar un curso de interés.');
+        return false;
+    } else {
+        clearError(courseSelect, 'error-courseSelect');
+        return true;
+    }
 }
 
 function validateMessage(){
