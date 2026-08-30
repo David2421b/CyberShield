@@ -94,3 +94,27 @@ function validateMessage() {
         return true;
     }
 }
+
+function setError(inputElement, errorSpanId, message) {
+    const formGroup = inputElement.closest('.form-group');
+    const errorSpan = document.getElementById(errorSpanId);
+
+    if (formGroup) {
+        formGroup.classList.add('error');
+    }
+    if (errorSpan) {
+        errorSpan.textContent = message;
+    }
+}
+
+function clearError(inputElement, errorSpanId) {
+    const formGroup = inputElement.closest('.form-group');
+    const errorSpan = document.getElementById(errorSpanId);
+
+    if (formGroup) {
+        formGroup.classList.remove('error');
+    }
+    if (errorSpan) {
+        errorSpan.textContent = '';
+    }
+}
