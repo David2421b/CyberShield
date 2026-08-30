@@ -67,3 +67,21 @@ ul {
     color: var(--accent-color);
     font-family: var(--font-code);
 }
+
+.nav-menu ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+    padding: 0.5rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-color);
+}
