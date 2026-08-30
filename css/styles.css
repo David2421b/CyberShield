@@ -35,3 +35,24 @@ a {
 ul {
     list-style: none;
 }
+
+.main-header {
+    position: sticky; /*Hace que el header no se mueva cuando hago scroll*/
+    top: 0;
+    width: 100%;
+    background-color: rgba(10, 14, 23, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000; /*Mantiene el header sobre cualquier otro objeto*/
+    box-shadow: var(--shadow-main); /*Coloca una breve sombra sobre las variables*/
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
