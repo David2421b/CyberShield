@@ -28,7 +28,7 @@ function renderCourses(coursesList) {
 
     if (coursesList.length === 0) {
     coursesGrid.innerHTML = `
-        <p style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 2rem;">
+        <p class="courses-empty">
         No se encontraron cursos disponibles en esta categoría.
         </p>
     `;
@@ -49,7 +49,7 @@ function renderCourses(coursesList) {
                 <span>Nivel: <strong>${course.nivel}</strong></span>
                 <span>Duración: <strong>${course.duracion}</strong></span>
             </div>
-            <div class="course-details" style="border-top: none; padding-top: 0;">
+            <div class="course-details course-details-action">
                 <span class="course-price">$${course.precio.toFixed(2)} USD</span>
                 <a href="#contacto" class="btn btn-primary btn-select-course" data-id="${course.id}">Inscribirse</a>
             </div>

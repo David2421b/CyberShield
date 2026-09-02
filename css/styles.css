@@ -371,6 +371,18 @@ main {
     padding-top: 0.75rem;
 }
 
+.course-details.course-details-action {
+    border-top: none;
+    padding-top: 0;
+}
+
+.courses-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 2rem;
+}
+
 
 .course-price {
     font-size: 1.2rem;
