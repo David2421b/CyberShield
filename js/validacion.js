@@ -2,24 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormValidation();
 });
 
-// Configuración centralizada de N8N
-const N8N_CONFIG = {
-    // URL del Webhook de N8N:
-    // - Para modo prueba (Listen for test event): http://localhost:5678/webhook-test/783d7217-4d70-457b-9e60-04d5b3180f6c
-    // - Para modo producción (Workflow Active): http://localhost:5678/webhook/783d7217-4d70-457b-9e60-04d5b3180f6c
-    webhookUrl: 'http://localhost:5678/webhook-test/783d7217-4d70-457b-9e60-04d5b3180f6c',
-    timeoutMs: 12000 // 12 segundos de tiempo límite
-};
-
-function getResolvedWebhookUrl() {
-    let url = N8N_CONFIG.webhookUrl;
-    // Si la página se está ejecutando desde 127.0.0.1, alinear localhost a 127.0.0.1 para evitar discrepancias de origen
-    if (window.location.hostname === '127.0.0.1' && url.includes('localhost')) {
-        url = url.replace('localhost', '127.0.0.1');
-    }
-    return url;
-}
-
 function initFormValidation() {
     const form = document.getElementById('enrollment-form');
     if (!form) return;
@@ -29,7 +11,6 @@ function initFormValidation() {
     const courseSelect = document.getElementById('courseSelect');
     const messageInput = document.getElementById('message');
     const formStatus = document.getElementById('form-status');
-    const submitBtn = form.querySelector('.btn-submit') || form.querySelector('button[type="submit"]');
 
     const validateFullName = () => {
         const value = fullNameInput.value.trim();
@@ -105,7 +86,7 @@ function initFormValidation() {
     });
 
     // Manejo de envío del formulario
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const isFullNameValid = validateFullName();
@@ -113,105 +94,28 @@ function initFormValidation() {
         const isCourseValid = validateCourseSelect();
         const isMessageValid = validateMessage();
 
-        if (!(isFullNameValid && isEmailValid && isCourseValid && isMessageValid)) {
-            formStatus.className = 'form-status error';
-            formStatus.textContent = '⚠️ Por favor, corrige los campos marcados en rojo antes de enviar.';
-            return;
-        }
+        if (isFullNameValid && isEmailValid && isCourseValid && isMessageValid) {
+            formStatus.className = 'form-status success';
+            formStatus.textContent = '¡Inscripción recibida con éxito! Nos pondremos en contacto contigo pronto.';
 
-        const selectedOption = courseSelect.options[courseSelect.selectedIndex];
-        const payload = {
-            fullName: fullNameInput.value.trim(),
-            email: emailInput.value.trim(),
-            courseId: courseSelect.value,
-            courseTitle: selectedOption ? selectedOption.text : courseSelect.value,
-            message: messageInput.value.trim() || 'Sin mensaje adicional',
-            submittedAt: new Date().toISOString(),
-            source: 'CyberShield Web Platform'
-        };
+            form.reset();
 
-        // Estado de carga visual
-        setLoadingState(true, submitBtn, formStatus);
-
-        // Control de Timeout
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), N8N_CONFIG.timeoutMs);
-
-        const targetUrl = getResolvedWebhookUrl();
-
-        try {
-            const response = await fetch(targetUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(payload),
-                signal: controller.signal
+            // Limpiar errores residuales
+            [fullNameInput, emailInput, courseSelect, messageInput].forEach(input => {
+                const group = input.closest('.form-group');
+                if (group) group.classList.remove('error');
             });
 
-            clearTimeout(timeoutId);
+            setTimeout(() => {
+                formStatus.className = 'form-status';
+                formStatus.textContent = '';
+            }, 5000);
 
-            if (response.ok) {
-                formStatus.className = 'form-status success';
-                formStatus.textContent = '✅ ¡Inscripción recibida con éxito! Revisa tu correo electrónico para los detalles del curso.';
-                form.reset();
-
-                // Quitar clases de error residuales
-                [fullNameInput, emailInput, courseSelect, messageInput].forEach(input => {
-                    const group = input.closest('.form-group');
-                    if (group) group.classList.remove('error');
-                });
-
-                setTimeout(() => {
-                    formStatus.className = 'form-status';
-                    formStatus.textContent = '';
-                }, 7000);
-            } else {
-                let errorDetails = `Error HTTP ${response.status}`;
-                if (response.status === 404) {
-                    errorDetails = 'El webhook de N8N devolvió 404. Verifica que el workflow esté guardado y con el switch "Active" encendido en N8N.';
-                }
-                throw new Error(errorDetails);
-            }
-
-        } catch (error) {
-            clearTimeout(timeoutId);
-            console.error('Error al enviar la inscripción al webhook de N8N:', error);
-
+        } else {
             formStatus.className = 'form-status error';
-            if (error.name === 'AbortError') {
-                formStatus.textContent = '⏳ La solicitud tardó demasiado tiempo. Verifica si tu servidor de N8N está encendido y respondiendo.';
-            } else if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
-                formStatus.textContent = '❌ No se pudo conectar con N8N en ' + N8N_CONFIG.webhookUrl + '. Asegúrate de que N8N esté iniciado en tu equipo.';
-            } else {
-                formStatus.textContent = `❌ ${error.message}`;
-            }
-        } finally {
-            setLoadingState(false, submitBtn, formStatus);
+            formStatus.textContent = 'Por favor, corrige los errores en el formulario antes de enviar.';
         }
     });
-}
-
-function setLoadingState(isLoading, submitBtn, formStatus) {
-    if (isLoading) {
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.dataset.originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span class="spinner-icon"></span> Enviando...';
-        }
-        if (formStatus) {
-            formStatus.className = 'form-status loading';
-            formStatus.innerHTML = '<span class="spinner-icon"></span> Conectando con N8N y registrando inscripción...';
-        }
-    } else {
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            if (submitBtn.dataset.originalText) {
-                submitBtn.innerHTML = submitBtn.dataset.originalText;
-            }
-        }
-    }
 }
 
 function clearFormStatus(formStatus) {
