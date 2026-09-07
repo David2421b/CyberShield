@@ -87,25 +87,25 @@ function initCategoryFilters() {
 }
 
 function bindCourseSelectionEvents() {
-  const selectButtons = document.querySelectorAll('.btn-select-course');
-  const courseSelect = document.getElementById('courseSelect');
+    const selectButtons = document.querySelectorAll('.btn-select-course');
+    const courseSelect = document.getElementById('courseSelect');
 
-  if (!courseSelect) return;
+    if (!courseSelect) return;
 
-  selectButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const courseId = e.target.getAttribute('data-id');
-      courseSelect.value = courseId;
-      // Disparar evento change para sincronizar validaciones en tiempo real
-      courseSelect.dispatchEvent(new Event('change', { bubbles: true }));
-      
-      // Enfocar suavemente el formulario
-      const fullNameInput = document.getElementById('fullName');
-      if (fullNameInput) {
-        setTimeout(() => fullNameInput.focus(), 300);
-      }
+    selectButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+        const courseId = e.target.getAttribute('data-id');
+        courseSelect.value = courseId;
+        // Disparar evento change para sincronizar validaciones en tiempo real
+        courseSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        
+        // Enfocar suavemente el formulario
+        const fullNameInput = document.getElementById('fullName');
+        if (fullNameInput) {
+            setTimeout(() => fullNameInput.focus(), 300);
+        }
+        });
     });
-  });
 }
 
 // Parte responsive para celular
